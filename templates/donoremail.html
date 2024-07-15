@@ -1,0 +1,24 @@
+{% autoescape off %}
+
+Hi {{ donor_name }},
+
+A donation request has been made as follows:
+
+Patient's Name: {{ recipient_name }}
+Blood Type Needed: {{ recipient_blood }}
+Patient's Age: {{ recipient_age }}
+Patient's Gender: {{ recipient_gender }}
+Donation Cause: {{ recipient_condition }}
+Guardian's Contact: {{ recipient_phone }}
+Guardian's Email: {{ recipient_email }}
+Donate Location: {{ recipient_location }}
+Donation Date: {{ recipient_date }}
+Donation Time: {{ recipient_time }}
+Donation Type: {{ recipient_donationtype }}
+Donation Quantity: {{ recipient_donationquantity }} Bag
+
+Please consider responding to this request. http://hemosys.onrender.com/donor/donation-request/
+
+Thank you.
+
+{% endautoescape %}

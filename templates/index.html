@@ -1,0 +1,384 @@
+{% extends "base.html" %} 
+{% block title %} Hemosys | Home {% endblock title %}
+{% block content %} 
+{% load static %}
+
+<!-- ======= Hero Section ======= -->
+  <section id="home">
+  <div class="home-container">
+    <h3>Welcome to <strong>HEMOSYS</strong></h3>
+    <h1>DONATE BLOOD SAVE LIFE</h1>
+    <h2>Someone is needing blood somewhere</h2>
+    <a href="#learn-about-donation" class="btn-get-started scrollto">Get Started</a>
+  </div>
+  </section>
+<!-- End Hero -->
+
+<!-- ======= Main Section ======= -->
+<main id="main">
+
+  <!-- ======= Learn about donation ======= -->
+  <section id="learn-about-donation" class="lad">
+    <div class="container"> 
+      <div class="section-title">
+        <!--<h2>Donation</h2>-->
+        <h3>Learn about <span>Donation</span></h3>
+      </div>
+
+      <div class="img_tbl">
+        <div class="imgtxt">
+          <img class="bloodbag" src="{% static '/images/donationFact.webp' %}" />
+          <br><br>
+          <p>
+            After donating blood, the body works to replenish the blood loss.
+            This stimulates the production of new blood cells and in turn, helps
+            in maintaining good health.
+          </p>
+        </div>
+        
+        <div class="tcol col-sm-6" style="font-size: 1.5rem">
+          <table class="table table-responsive">
+            <tbody>
+              <tr>
+                <th class="thdr" colspan="3">Compatible Blood Type Donors</th>
+              </tr>
+              <tr class="rwtxt">
+                <td><b>Blood Type</b></td>
+                <td><b>Donate Blood To</b></td>
+                <td><b>Receive Blood From</b></td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>A+</b></span>
+                </td>
+                <td>A+ AB+</td>
+                <td>A+ A- O+ O-</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>O+</b></span>
+                </td>
+                <td>O+ A+ B+ AB+</td>
+                <td>O+ O-</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>B+</b></span>
+                </td>
+                <td>B+ AB+</td>
+                <td>B+ B- O+ O-</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>AB+</b></span>
+                </td>
+                <td>AB+</td>
+                <td>Everyone</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>A-</b></span>
+                </td>
+                <td>A+ A- AB+ AB-</td>
+                <td>A- O-</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>O-</b></span>
+                </td>
+                <td>Everyone</td>
+                <td>O-</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>B-</b></span>
+                </td>
+                <td>B+ B- AB+ AB-</td>
+                <td>B- O-</td>
+              </tr>
+              <tr class="rwtxt">
+                <td>
+                  <span style="color: #961e1b"><b>AB-</b></span>
+                </td>
+                <td>AB+ AB-</td>
+                <td>AB- A- B- O-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ======= End of lad ======= -->
+
+  <!-- ======= Types of donation ======= -->
+  <section id="tod" class="tod">
+    <div class="container">
+      <div class="section-title">
+        <h2>Types</h2>
+        <h3>Types of <span>Donation</span></h3>
+      </div>
+      <div class="content">
+        <p style="text-align: center">
+          The average human body contains about five liters of blood, which is
+          made of several cellular and non-cellular components such as
+          <strong>Red blood cell</strong>, <strong>Platelet</strong>, and
+          <strong>Plasma</strong>.
+        </p>
+      </div>
+      <div class = "tabs">
+        <input type="radio" class="tab_radio" name="tabs-example" id="tab1" checked>
+        <label for="tab1" class="tab_label">Red Blood Cells</label>
+        <div class="tab_content">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td style="width: 33%; padding: 10px">
+                <br><b>What is it?</b><br>
+                Blood Collected straight from the donor into a blood bag and mixed with an anticoagulant is called as whole blood. This collected whole blood is then centrifuged and red cell, platelets and plasma are separated. The separated Red cells are mixed with a preservative to be called as packed red blood cells.
+                <br><br><b>Who can donate?</b><br>
+                You need to be 18-65 years old, weight 45kg or more and be fit and healthy.
+                </td>
+
+                <td style="width: 33%; padding: 10px">
+                  <br><b>User For?</b><br>
+                  Correction of severe anemia in a number of conditions and blood loss in case of child birth, surgery or trauma settings.                    
+                  <br><br><b>Lasts For?</b><br>
+                  Red cells can be stored for 42 days at 2-6 degree celsius.
+                </td>
+
+                <td style="width: 33%; padding: 10px">
+                  <br><b>How long does it take to donate?</b><br>
+                  15-30 minutes to donate.including the pre-donation check-up.                    
+                  <br><br><b>How often can I donate?</b><br>
+                  Male donors can donate again after 90 days and female donors can donate again after 120 days.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <input type="radio" class="tab_radio" name="tabs-example" id="tab2">
+        <label for="tab2" class="tab_label">Plasma</label>
+        <div class="tab_content">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td style="width: 33%; padding: 10px">
+                <br><b>What is it?</b><br>
+                The straw-coloured liquid in which red blood cells, white blood cells, and platelets float in is called plasma.Contains special nutrients which can be used to create 18 different type of medical products to treat many different medical conditions. Plasma can be obtained from the collected whole blood after red blood cells and platelets have been separated. Additionally, it can also be collected using an apheresis equipment where other components are returned to the donor. The former is a common method of plasma preparation in our country.
+                <br><br><b>Who can donate?</b><br>
+                The donation criteria is similar to that of red blood cell. However, for apheresis plasma collection minimum weight is 50 kgs.
+                </td>
+  
+                <td style="width: 33%; padding: 10px">
+                  <br><b>User For?</b><br>
+                  Used for bleeding patients with coagulation factor deficiency such as hemophilia A and B, von willibrand disease etc. also used in cases of blood loss due to trauma.                    
+                  <br><br><b>Lasts For?</b><br>
+                  Plasma after separation if frozen below -30 degrees can be stored up to one year.
+                </td>
+  
+                <td style="width: 33%; padding: 10px">
+                  <br><b>How long does it take to donate?</b><br>
+                  15-30 minutes to donate including the pre-donation check-up.                    
+                  <br><br><b>How often can I donate?</b><br>
+                  Male donors can donate again after 90 days and female donors can donate again after 120 days.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <input type="radio" class="tab_radio" name="tabs-example" id="tab3">
+        <label for="tab3" class="tab_label">Platelet</label>
+        <div class="tab_content">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td style="width: 33%; padding: 10px">
+                <br><b>What is it?</b><br>
+                These are cellular elements in blood which wedge together to help to clot and reduce bleeding. Always in high demand, Vital for people with low platelet count, like hematology and cancer patients.
+                <br><br><b>Who can donate?</b><br>
+                One can donate whole blood from which the blood centre will separate platelets from other components. Criteria similar to whole blood donation apply. Alternatively, one can donate using apheresis equipment where only platelets are collected and rest components are returned back to donate. One need to satisfy whole blood criteria and pre- donation screening which include negative infectious markers and platelet count >1,50,000 per microlitre of blood. Weight should be >50kgs.
+                </td>
+  
+                <td style="width: 33%; padding: 10px">
+                  <br><b>User For?</b><br>
+                  Conditions with very low platelet count such as Cancer, blood diseases, trauma, dengue etc.                    
+                  <br><br><b>Lasts For?</b><br>
+                  Can be stored for 5 days at 20-24 degree celsius.
+                </td>
+  
+                <td style="width: 33%; padding: 10px">
+                  <br><b>How long does it take to donate?</b><br>
+                  45-60 minutes to donate. 2-3 hours for pre-donation screening.                   
+                  <br><br><b>How often can I donate?</b><br>
+                  Every 2 weeks but should not exceed more than 24 times in a year.
+                  <br><br><b>How does it work?</b><br>
+                  We collect your blood, keep platelet and return rest to you by apheresis donation.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <!-- ======= End of tod ======= -->
+
+  <!-- ======= Activity Section ======= -->
+  <section id="activity" class="activity">
+    <div class="container">
+      <div class="section-title">
+        <h2>Overview</h2><br>
+        <p>Overview of key metrics including the number of registered users, donors, blood banks, and blood donation camps.</p>
+        <br>
+      </div>
+
+
+
+      <div class="row justify-content-center">
+        <div class="">
+          <div class="icon-box">
+            <h1><b>{{user_count}}</b></h1>
+            <h4 class="title"><a href="">Registered Users</a></h4>
+            <p class="description">The individuals who <br> have registered in our<br> hemeosys community.</p>
+          </div>
+        </div>&nbsp&nbsp
+
+        <div class="">
+          <div class="icon-box">
+            <h1><b>{{donor_count}}</b></h1>
+            <h4 class="title"><a href="">Registered Donors</a></h4>
+            <p class="description">The individuals who <br>have participated<br> in donating blood.</p>
+          </div>
+        </div>&nbsp&nbsp
+
+        <div class="">
+          <div class="icon-box">
+            <h1><b>{{bank_count}}</b></h1>
+            <h4 class="title"><a href="">Registered Banks</a></h4>
+            <p class="description">The blood bank <br> facilities that are <br> part of our network.</p>
+          </div>
+        </div>&nbsp&nbsp
+
+        <div class="">
+          <div class="icon-box">
+
+            <h1><b>{{camp_count}}</b></h1>
+            <h4 class="title"><a href="">Registered Camps</a></h4>
+            <p class="description">The blood donation <br> camps hosted by <br> our organization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Activity Section -->
+
+  <!-- ======= F.A.Q Section ======= -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>F.A.Q</h2>
+        <h3>Frequently Asked <span>Questions</span></h3>
+      </div>
+
+      <ul class="faq-list">
+        <li>
+          {% for n in faqdet %}
+          <div
+            data-bs-toggle="collapse"
+            class="collapsed question"
+            href="#faq{{n.id}}"
+          >
+            {{n.ques}}<i class="bi bi-chevron-down icon-show"></i
+            ><i class="bi bi-chevron-up icon-close"></i>
+          </div>
+          <div id="faq{{ n.id }}" class="collapse" data-bs-parent=".faq-list">
+            <p>{{n.ans | safe}}</p>
+          </div>
+          <br />
+          {% endfor %}
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- End F.A.Q Section -->
+
+  {% if first_donor.user.first_name and first_donor.donor_donationcount %}
+  <!-- ======= Top Donors ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>Heroes</h2>
+        <h3>Our <span>Top Donors</span></h3>
+      </div>
+      
+      <div class="row portfolio-container">
+        
+        {% if first_donor.user.first_name and first_donor.donor_donationcount %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          {% if first_donor.user.userprofile.image %}
+          <img src="{{ first_donor.user.userprofile.image.url }}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+          {% else %}
+          <img src="{% static '\images\default-profile-picture.png' %}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+          {% endif %}
+          <div class="portfolio-info">
+            <h4>{{ first_donor.user.first_name }}</h4>
+            <p>Donation count: {{ first_donor.donor_donationcount }}</p>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if second_donor.user.first_name and second_donor.donor_donationcount %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          {% if second_donor.user.userprofile.image %}
+          <img src="{{ second_donor.user.userprofile.image.url }}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+          {% else %}
+          <img src="{% static '\images\default-profile-picture.png' %}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+          {% endif %}
+          <div class="portfolio-info">
+            <h4>{{ second_donor.user.first_name }}</h4>
+            <p>Donation count: {{ second_donor.donor_donationcount }}</p>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if third_donor.user.first_name and third_donor.donor_donationcount %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          {% if third_donor.user.userprofile.image %}
+          <img src="{{ third_donor.user.userprofile.image.url }}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+          {% else %}
+          <img src="{% static '\images\default-profile-picture.png' %}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+          {% endif %}
+          <div class="portfolio-info">
+            <h4>{{ third_donor.user.first_name }}</h4>
+            <p>Donation count: {{ third_donor.donor_donationcount }}</p>
+          </div>
+        </div>
+        {% endif %}
+        
+      </div>
+
+    </div>
+  </section>
+  <!-- End Top Donors -->
+{% endif %}
+
+<script>
+  $(document).ready(function() {
+    $('.btn-get-started').click(function(e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top
+      }, 1000);
+    });
+  });
+</script>
+
+</main>
+<!-- End #main -->
+
+{% endblock content %}

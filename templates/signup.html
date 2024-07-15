@@ -1,0 +1,56 @@
+{% extends "base.html" %} 
+{% block title %}Hemosys | Sign up{% endblock title %}
+
+{% block content %}
+
+<br>
+<div class="formsignupbg">
+  <br><br>
+  
+  <div class="d-flex justify-content-center">
+    <div class="card bg-light p-5 formsignup">
+    
+      <h3 class="text-dark d-flex justify-content-center">Sign up</h3>
+      
+      <form method="POST">
+        {% csrf_token %}
+        
+      
+        <label for="first_name">Name</label>
+        <div class="form-group">
+          <input type="text" class="form-control p-2" id="first_name" name="first_name" required/>
+        </div>
+      
+        <label for="email">Email</label>
+        <div class="form-group">
+          <input type="email" class="form-control p-2" id="email" name="email" required/>
+        </div>
+        <label for="password1">Password</label>
+        <div class="form-group">
+          <input type="password" class="form-control" id="password1" name="password1" required/>
+        </div>
+        <div class="col">
+          <ul>
+            <li>Your password can't be too similar to other information.</li>
+            <li>Your password must contain at least 8 characters.</li>
+            <li>Your password can't be a commonly used password.</li>
+            <li>Your password can't be entirely numeric.</li>
+          </ul>
+        </div>
+        <label for="password2">Confirm Password</label>
+        <div class="form-group">
+          <input type="password" class="form-control p-2" id="password2" name="password2" required/>
+        </div>
+        <div class="col">
+          <ul>
+            <li>Enter the same password as before, for verification.</li>
+          </ul>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark">Sign up</button>
+      </form>
+    </div> 
+  </div> 
+</div> 
+
+{% endblock content %}

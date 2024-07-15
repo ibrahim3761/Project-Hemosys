@@ -1,0 +1,67 @@
+{% extends "base.html" %} 
+{% block title %} Hemosys | Donor Details{% endblock title %} 
+{% block content %}
+{% load static %}
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+  <br>
+
+  <div class="dashboard d-flex justify-content-center">
+    <div class="profile">
+
+      <div class="profile-photo d-flex justify-content-center">
+        {% if donor.user.userprofile.image %}
+        <img src="{{ user.userprofile.image.url }}" alt=""/>
+        {% else %}
+        <img src="{% static '\images\default-profile-picture.png' %}" alt=""/>
+        {% endif %}
+      </div><br><br>
+
+      <div class="title justify-content-center">
+        {% if donor.user.is_authenticated %}
+        <h1>{{ donor.user.first_name }}</h1> 
+        <p> {{ donor.user.userprofile.location }} </p><br>
+      </div>
+
+      <div class="d-flex justify-content-center">
+
+        <div class="profile-info">
+
+          <ul>
+            <div class="row">
+              <div class="col-lg-7">
+                <li><strong>Number</strong>: {{ donor.user.userprofile.phone }} </li>
+                <li><strong>Email</strong>:  {{ donor.user.email }} </li>
+                <li><strong>Gender</strong>: {{ donor.user.userprofile.gender }}</li>
+                <li><strong>Blood group</strong>: {{ donor.user.userprofile.bloodgroup }}</li>
+              </div>
+              <div class="col-lg-4">
+
+                <li><strong>Age</strong>: {{ donor.user.userprofile.age }}</li>
+                {% if donor.user.userprofile.donor_donationcount %}
+                <li><strong>Donation count</strong>: {{ donor.user.userprofile.donor_donationcount }} </li>
+                {% else %}
+                <li><strong>Donation count</strong>: 0 </li>
+                {% endif %}
+
+                {% if user.userprofile.last_donation %}
+                <li><strong>Last donation</strong>: {{ donor.user.userprofile.last_donation|date:"d M Y" }} </li>
+                <li><strong>Next donation</strong>: {{ donor.user.userprofile.next_eligible_date|date:"d M Y" }} </li>
+                {% else %}
+                <li><strong>Last donation</strong>: Not available </li> 
+                <li><strong>Next donation</strong>: Not available </li> 
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+          </ul><br>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- End Portfolio Details Section -->
+
+{% endblock content %}

@@ -1,0 +1,106 @@
+{% extends "base.html" %} 
+{% block title %} Hemosys | Blood Availability {% endblock title %}
+{% load static %}
+{% block content %}
+
+<section id="bloodavailability" class="bloodavailability">
+  <div class="container">
+    <div class="section-title">
+      <br/><br/>
+      <h3>Blood <span>Availability</span></h3>
+    </div>
+
+    <!-- ===== Searching Functionality ===== -->
+
+    <div class="container mt-3 mb-3">
+      <form method="GET" action="">
+        <div class="row">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <input type="text" class="form-control" id="searchAddress" name="searchAddress" placeholder="Search with location"/>
+          </div>
+          <div class="col-md-4 mb-1 mb-md-0">
+            <div class="form-group">
+              <select class="form-control" id="searchBloodGroup" name="searchBloodGroup">
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <select class="form-control" id="searchType" name="searchType">
+                <option value="Select">Select Type</option>
+                <option value="Donor">Donor</option>
+                <option value="BloodBank">Blood Bank</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <br/>
+        <button type="submit" class="btn btn-secondary mx-2" style="background-color: #e43c5c"> Search </button>
+      </form>
+    </div>
+
+    <!-- ===== Donor and Blood Bank Profiles ===== -->
+    
+    <div>
+      {% if users or bankdata %}
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          <div class="row portfolio-container"> 
+              {% for user in users %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                {% if user.userprofile.image %}
+                <img src="{{ user.userprofile.image.url }}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+                {% else %}
+                <img src="{% static '\images\default-profile-picture.png' %}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+                {% endif %}
+                <div class="portfolio-info"> 
+                  <div class="d-flex">
+                    <a class="pr-2 pt-1" href="/donor/donor-details/{{ user.id }}/"><h4>{{ user.first_name }}</h4></a>
+                    <a href="/donor/donor-details/{{ user.id }}/"> <i class="bi bi-link-45deg" style="color:white"></i> </a>
+                  </div>
+                  <p>{{ user.userprofile.bloodgroup }}</p>
+                </div>
+              </div>
+              {% endfor %}
+
+              {% for n in bankdata %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+
+                {% if n.user.bloodbank.image %} 
+                <img src="{{ n.user.bloodbank.image.url }}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+                {% else %}
+                <img src="{% static '\images\blood-bank.png' %}" alt="" class="img-fluid rounded" style="width: 400px; height: 250px;"/>
+                {% endif %} 
+
+                <div class="portfolio-info"> 
+                  <div class="d-flex">
+                    <a class="pr-2 pt-1" href="/bloodbank/bloodbank-details/{{ n.user_id }}/"><h4>{{n.user.bloodbank.bloodbankname}}</h4></a>
+                    <a href="/bloodbank/bloodbank-details/{{ n.user_id }}/"> <i class="bi bi-link-45deg" style="color:white"></i> </a>
+                  </div>
+                  <p>{{n.user.bloodbank.bloodbankgroups}}</p>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+        </div>
+      </section>
+      {% else %}
+      <div class="col d-flex justify-content-center">
+        <h4>No donor or blood bank available.</h4>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

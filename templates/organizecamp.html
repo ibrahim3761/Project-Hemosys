@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %} Hemosys | Donation Camp {% endblock title %}
+{% block content %}
+<br><br>
+<div class="card bg-light p-5">
+  <div class="section-title">
+    <h3>Organize <span>Donation Camp</span></h3>
+  </div><br>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <label for="campname">Camp name</label>
+        <div class="form-group">
+          <input type="text" class="form-control" id="campname" name="campname" required/>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="campaddress">Camp address</label>
+        <div class="form-group">
+          <input type="text" class="form-control" id="campaddress" name="campaddress" required/>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <label for="camporganizer">Camp organizer</label>
+        <div class="form-group">
+          <input type="tel" class="form-control" id="camporganizer" name="camporganizer" required/>
+        </div> 
+      </div>
+      <div class="col-md-4">
+        <label for="campcontact">Contact</label>
+        <div class="form-group">
+          <input type="tel" class="form-control" id="campcontact" name="campcontact" required/>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <label for="campdate">Date</label>
+        <div class="form-group">
+          <input type="date" class="form-control" id="campdate" name="campdate" required/>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="camptime">Time</label>
+        <div class="form-group">
+          <input type="time" class="form-control" id="camptime" name="camptime" required/>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="row justify-content-center">
+        <button type="submit" class="btn btn-dark" style="background-color: #e43c5c">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

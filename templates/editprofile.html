@@ -1,0 +1,73 @@
+{% extends "base.html" %} 
+{% block title %} Hemosys | Edit Profile {% endblock title %} 
+{% block content %}
+
+
+<div class="edit bg-light p-5">
+    <br><br> 
+
+    <div class="section-title">
+      <h3>Edit <span>Profile</span></h3>
+    </div><br>
+
+    <div class="edit-info d-flex justify-content-center">
+
+      <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+          
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <label for="phone">Donor's phone number</label>
+            <div class="form-group">
+              {{form.phone}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="location">Donor's address</label>
+            <div class="form-group">
+              {{form.location}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <label for="age">Donor's age</label>
+            <div class="form-group">
+              {{form.age}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="gender">Donor's gender</label>
+            <div class="form-group">
+              {{form.gender}}
+            </div>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <label for="bloodgroup">Donor's blood group</label>
+            <div class="form-group">
+              {{form.bloodgroup}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="image">Update photo</label> 
+            <br>
+            <div class="form-image">
+              {{form.image}}
+            </div>
+          </div>
+        </div>
+        <br><br>
+
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-dark" style="background-color: #e43c5c;">Update</button>
+        </div>
+        
+      </form>
+    </div>
+</div><br>
+
+{% endblock content %}

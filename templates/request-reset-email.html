@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block title %}Hemosys | Reset Password{% endblock title %} 
+{% block content %}
+
+<div class="formbg">
+  <br><br><br>
+  <div class="d-flex justify-content-center">
+    <div class="card bg-light p-5 forms">
+
+      <h2 class="text-dark d-flex justify-content-center">Request Link</h2>
+
+      <form action="/auth/request-reset-email/" method="post">
+        {% csrf_token %}
+        <br>
+        <label for="email">Email</label>
+        <div class="form-group">
+            <input type="email" class="form-control p-2" id="email" name="email" required/>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

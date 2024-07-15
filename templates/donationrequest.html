@@ -1,0 +1,132 @@
+{% extends 'base.html' %} 
+{% block title %} Hemosys | Donation Request {%endblock title %} 
+{% block content %}
+
+<section id="donation-request" class="donation-request">
+  <div class="container">
+    <div class="section-title">
+      <br><br>
+      <h3>Donation <span>Request</span></h3>
+    </div>
+  </div> 
+
+
+  <!------------------------------- Searching Functionality ------------------------------->
+  
+  <div class="container mt-3 mb-3">
+    <form method="GET" action="">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+          <input type="text" class="form-control" id="searchAddress" name="searchAddress" placeholder="Search with location"/>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <select class="form-control" id="searchBloodGroup" name="searchBloodGroup">
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-secondary mx-2" style="background-color: #e43c5c; height:38px" > Search </button>
+      </div>
+      <br/>
+    </form>
+  </div>
+  {% if page_obj %}
+  <div class="container">
+    <div class="row gy-4"> 
+      {% for n in page_obj %}
+      <div class="col-lg-4">
+        <div class="donation-info">
+          <h3>{{ n.recipientname }}</h3>
+          <ul>
+            <li><strong>Contact</strong>: {{ n.recipientphone }} </li>
+            <li><strong>Email</strong>: {{ n.recipientemail }} </li>
+            <li><strong>Location</strong>: {{ n.recipientlocation }} </li>
+            <li><strong>Age</strong>: {{ n.recipientage }} </li>
+            <li><strong>Gender</strong>: {{ n.recipientgender }} </li>
+            <li><strong>Blood Group</strong>: {{ n.recipientblood }} </li>
+            <li><strong>Donation</strong>: {{ n.recipientdonationtype }} - {{ n.recipientdonationquantity }} Bag</li>
+            <li><strong>Patient's Condition</strong>: {{ n.recipientcondition }} </li>
+            <li><strong>Date - Time</strong>: {{ n.recipientdate | date:"d M Y" }}, {{ n.recipienttime | date:"h:i A"}} </li>
+            <br><br>
+          </ul>
+        </div>
+        
+        {% if n.user.id == user.id %}
+        <form method="post" action="/donor/delete-donation-request/{{ n.id }}/">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-secondary mx-2" style="background-color: #e43c5c; width: 340px;"> Delete </button>
+        </form> 
+        {% else %}
+        <form method="post" action="/donor/confirm-donation/{{ n.id }}/">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-secondary mx-2" style="background-color: #e43c5c; width: 340px;"> Confirm </button>
+        </form>
+        {% endif %}   
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="col d-flex justify-content-center">
+    <h4>No donation request available.</h4>
+  </div>
+  {% endif %}
+
+
+  <!-- ===== Pagination ===== -->
+  <br><br>
+  <div class="container d-flex justify-content-center">
+    <nav aria-label="...">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1">First</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="?page=1">First</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+        {% endif %}
+  
+        {% for num in page_obj.paginator.page_range %}
+          <li class="page-item {% if page_obj.number == num %}active{% endif %}" aria-current="page">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+          </li>
+        {% endfor %}
+  
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Next</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Last</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</section>
+
+{% endblock content %}
